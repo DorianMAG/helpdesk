@@ -10,6 +10,14 @@
     <record id="helpdesk_ticket_action" model="ir.actions.act_window">
         <field name="name">Tickets</field>
         <field name="type">ir.actions.act_window</field>
+        <!-- TODO: OVERIDE IN A MODULE -->
+        <field name="context">
+            {
+                'search_default_group_stage': 1,
+                'search_default_open': 1,
+                'search_default_mytickets': 1,
+            }
+        </field>
         <field name="res_model">helpdesk.ticket</field>
         <field name="view_mode">tree,kanban,form,pivot</field>
     </record>
