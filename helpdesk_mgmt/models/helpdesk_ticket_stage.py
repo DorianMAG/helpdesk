@@ -41,6 +41,13 @@ class HelpdeskTicketStage(models.Model):
         help="Specific team that uses this stage. If it is empty all teams could uses",
         domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
     )
+    
+    exclude_from_count = fields.Boolean(
+        string="Exclude from Counter",
+        default=False,
+        help="If checked, tickets in this stage will not be counted "
+        "in the team dashboard",
+    )
 
     @api.onchange("closed")
     def _onchange_closed(self):
